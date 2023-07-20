@@ -11,6 +11,7 @@ jobs:
     name: Build Job
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Build
         uses: ./.github/actions/maven
         with:
@@ -21,6 +22,7 @@ jobs:
     name: Test Job
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Test
         uses: ./.github/actions/maven
         with:
