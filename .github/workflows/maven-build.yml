@@ -13,7 +13,7 @@ jobs:
     container:
       image: cytopia/yamllint
       volumes:
-        - ./:/data
+        - ${{github.workspace}}:/data
     steps:
       - run: yamllint .
 
