@@ -16,6 +16,7 @@ jobs:
         - ${{github.workspace}}:/data
     steps:
       - run: ls -lrtha /data
+      - run: hostname
       - run: yamllint .
 
   build:
