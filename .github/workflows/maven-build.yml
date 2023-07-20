@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build
-        uses: ../actions/maven.yml
+        uses: ./.github/actions/maven.yml
         with:
           maven-task: build
           java-version: '17'
@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test
-        uses: ../actions/maven.yml
+        uses: ./.github/actions/maven.yml
         with:
           maven-task: test
           java-version: '17'
