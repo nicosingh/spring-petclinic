@@ -13,10 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build
-        uses: ./.github/actions/maven
+        uses: ./.github/actions/maven.yml
         with:
           maven-task: package
-          java-version: '17'
         
   test:
     name: Test Job
@@ -25,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Test
-        uses: ./.github/actions/maven
+        uses: ./.github/actions/maven.yml
         with:
           maven-task: test
-          java-version: '17'
+          java-version: ${{ env.JAVA_VERSION }}
