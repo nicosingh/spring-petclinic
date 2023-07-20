@@ -10,9 +10,12 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    container:
+      image: cytopia/yamllint
+      volumes:
+        - ./:/data
     steps:
-      - uses: actions/checkout@v3
-      - uses: docker://cytopia/yamllint:latest
+      - run: yamllint .
 
   build:
     name: Build Job
