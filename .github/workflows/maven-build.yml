@@ -23,6 +23,7 @@ jobs:
         run: ./mvnw -B package
   test:
     name: Test Job
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -33,5 +34,5 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: 'adopt'
           cache: maven
-      - name: Build with Maven Wrapper
+      - name: Test with Maven Wrapper
         run: ./mvnw test
