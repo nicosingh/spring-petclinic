@@ -1,0 +1,27 @@
+name: Maven Action
+description: Maven Wrapper Action
+
+inputs:
+  maven-task:
+    description: Maven Task to execute
+    required: true
+    default: build
+  java-version:
+    description: Java version to be used
+    required: false
+    default: '17'
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+    - name: Configure JDK ${{ inputs.java-version }}
+      uses: actions/setup-java@v2
+      with:
+        java-version: ${{ inputs.java-version }}
+        distribution: 'adopt'
+        cache: maven
+    - name: Build with Maven Wrapper
+      run: ./mvnw ${{ inputs.maven-task }}
+      shell: bash
