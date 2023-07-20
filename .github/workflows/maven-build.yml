@@ -15,11 +15,12 @@ jobs:
       - name: Build
         uses: ./.github/actions/maven
         with:
-          maven-task: build
+          maven-task: package
           java-version: '17'
         
   test:
     name: Test Job
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
