@@ -16,8 +16,6 @@ jobs:
         - ${{github.workspace}}:/data
     steps:
       - uses: actions/checkout@v3
-      - run: ls -lrtha /data
-      - run: hostname
       - run: yamllint .
 
   build:
