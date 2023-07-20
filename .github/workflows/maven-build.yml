@@ -15,6 +15,7 @@ jobs:
       volumes:
         - ${{github.workspace}}:/data
     steps:
+      - run: ls -lrtha /data
       - run: yamllint .
 
   build:
