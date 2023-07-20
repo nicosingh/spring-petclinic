@@ -16,8 +16,20 @@ jobs:
         uses: ./.github/actions/maven
         with:
           maven-task: package
-        
+
   test:
+    name: Test Job
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test
+        uses: ./.github/actions/maven
+        with:
+          maven-task: test
+          java-version: ${{ env.JAVA_VERSION }}
+  
+  another-test:
     name: Test Job
     needs: build
     runs-on: ubuntu-latest
