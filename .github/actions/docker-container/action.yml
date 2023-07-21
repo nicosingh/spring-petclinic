@@ -6,5 +6,7 @@ runs:
   using: docker
   image: ubuntu
   args:
+    - pwd
+    - " && "
     - "ls"
     - "-lrtah"
