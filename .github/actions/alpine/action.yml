@@ -5,4 +5,4 @@ description: Alpine Debug Action
 runs:
   using: docker
   image: ubuntu
-  entrypoint: "ls -lrtha"
+  entrypoint: "cat build.gradle"
