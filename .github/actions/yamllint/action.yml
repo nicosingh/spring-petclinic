@@ -11,5 +11,7 @@ inputs:
 runs:
   using: docker
   image: cytopia/yamllint
+  entrypoint:
+    - ls -lrth /data
   args:
     - ${{ inputs.scan-path }}
