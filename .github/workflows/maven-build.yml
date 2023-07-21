@@ -16,7 +16,7 @@ jobs:
       - name: Lint
         uses: ./.github/actions/yamllint
         with:
-          scan-path: '.github/'
+          scan-path: '.'
 
   build:
     name: Build Job
