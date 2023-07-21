@@ -1,3 +1,4 @@
+---
 name: Java CI with Maven
 
 on:
@@ -38,7 +39,7 @@ jobs:
         with:
           maven-task: test
           java-version: ${{ env.JAVA_VERSION }}
-  
+
   another-test:
     name: Another Test Job
     needs: build
