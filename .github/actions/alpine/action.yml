@@ -4,5 +4,5 @@ description: Alpine Debug Action
 
 runs:
   using: docker
-  image: alpine
-  entrypoint: "pwd && ls -lrtha"
+  image: ubuntu
+  entrypoint: "pwd"
