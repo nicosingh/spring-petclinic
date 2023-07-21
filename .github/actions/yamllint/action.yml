@@ -11,6 +11,5 @@ inputs:
 runs:
   using: docker
   image: cytopia/yamllint
-  entrypoint: "ls -a /github/workspace"
   args:
     - ${{ inputs.scan-path }}
