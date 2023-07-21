@@ -9,11 +9,11 @@ env:
 
 jobs:
   alpine:
-    name: Alpine Debug
+    name: Docker Container Debug
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/alpine
+      - uses: ./.github/actions/docker-container
 
   lint:
     name: Lint Job

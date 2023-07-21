@@ -1,6 +1,6 @@
 ---
-name: Alpine Debug Action
-description: Alpine Debug Action
+name: Container Debug Action
+description: Container Debug Action
 
 runs:
   using: docker
