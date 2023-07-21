@@ -1,3 +1,4 @@
+---
 image:
   file: ./.devcontainer/Dockerfile
 tasks:
@@ -5,5 +6,5 @@ tasks:
   - init: ./mvnw install
 vscode:
   extensions:
-  - vscjava.vscode-java-pack
-  - redhat.vscode-xml
+    - vscjava.vscode-java-pack
+    - redhat.vscode-xml
