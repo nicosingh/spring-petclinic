@@ -1,0 +1,14 @@
+name: YAML Lint Action
+description: YAML Lint Action
+
+inputs:
+  scan-path:
+    description: Path to be analyzed
+    required: false
+    default: '.'
+
+runs:
+  using: docker
+  image: cytopia/yamllint
+  args:
+    - ${{ inputs.scan-path }}
