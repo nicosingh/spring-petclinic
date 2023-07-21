@@ -10,14 +10,14 @@ env:
 jobs:
   alpine:
     name: Docker Container Debug
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/docker-container
 
   lint:
     name: Lint Job
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       - name: Lint
@@ -27,7 +27,7 @@ jobs:
 
   build:
     name: Build Job
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       - name: Build
@@ -38,7 +38,7 @@ jobs:
   test:
     name: Test Job
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       - name: Test
@@ -50,7 +50,7 @@ jobs:
   another-test:
     name: Another Test Job
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       - name: Test
