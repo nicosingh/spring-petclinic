@@ -1,4 +1,5 @@
 ignore:
     'SNYK-JAVA-ORGTHYMELEAF-16078377':
+    - '*':
         reason: 'No fix available'
         expires: '2027-01-01T00:00:00.000Z'
