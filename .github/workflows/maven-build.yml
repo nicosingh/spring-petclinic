@@ -48,13 +48,6 @@ jobs:
         with:
           java-version: 17
           distribution: 'zulu'
-      - name: Set main branch in SonarCloud
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          curl -s -u "$SONAR_TOKEN:" -X POST \
-            "https://sonarcloud.io/api/project_branches/rename" \
-            -d "project=nico-singh_spring-petclinic&name=main"
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
