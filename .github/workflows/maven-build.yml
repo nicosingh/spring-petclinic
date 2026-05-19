@@ -43,11 +43,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: SonarCloud Scan
+      - name: Sonar Scan
+        uses: SonarSource/sonarqube-scan-action@v8.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: >-
-          mvn verify sonar:sonar
-          -Dsonar.projectKey=spring-petclinic
-          -Dsonar.organization=nicosingh-1
-          -Dsonar.host.url=https://sonarcloud.io
