@@ -53,5 +53,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-            -Dsonar.projectKey=nico-singh_spring-petclinic \
+            -Dsonar.projectKey=nico-singh_petclinic \
             -Dsonar.branch.name=main
