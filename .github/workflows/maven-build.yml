@@ -54,4 +54,4 @@ jobs:
         run: |
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.projectKey=nico-singh_petclinic \
-            -Dsonar.branch.name=${{ github.head_ref }}
+            -Dsonar.qualitygate.wait=true

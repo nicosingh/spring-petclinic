@@ -36,6 +36,12 @@
     <nohttp-checkstyle.version>0.0.11</nohttp-checkstyle.version>
     <spring-format.version>0.0.47</spring-format.version>
     <sonar.organization>nico-singh</sonar.organization>
+
+    <!-- Security overrides for managed dependencies until Spring Boot 4.0.7 ships -->
+    <spring-framework.version>7.0.8</spring-framework.version>
+    <tomcat.version>11.0.22</tomcat.version>
+    <micrometer.version>1.16.6</micrometer.version>
+    <spring-data-bom.version>2025.1.6</spring-data-bom.version>
   </properties>
 
   <dependencies>
