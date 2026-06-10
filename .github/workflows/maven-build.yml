@@ -16,12 +16,12 @@ jobs:
       matrix:
         java: [ '17' ]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up JDK ${{matrix.java}}
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           java-version: ${{matrix.java}}
-          distribution: 'adopt'
+          distribution: 'temurin'
           cache: maven
       - name: Build with Maven Wrapper
         run: ./mvnw -B verify
@@ -29,7 +29,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Snyk - Análisis de dependencias
         uses: snyk/actions/maven@master
         env:
@@ -40,11 +40,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           java-version: 17
           distribution: 'zulu'
