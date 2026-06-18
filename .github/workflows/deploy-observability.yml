@@ -6,7 +6,14 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
+      - uses: actions/checkout@v4
+
+      - name: Registrar inicio
+        run: echo "INICIO=$(date +%s)" >> $GITHUB_ENV
+
       - name: Desplegar stack en EC2 via SSH
         uses: appleboy/ssh-action@v1
         with:
@@ -17,3 +24,14 @@ jobs:
             cd spring-petclinic/observability
             git pull
             docker compose up -d --build
+
+      - name: Publicar en README
+        run: |
+          DURACION=$(($(date +%s) - $INICIO))
+          TAG="<!-- deploy-time -->${DURACION}s<!-- /deploy-time -->"
+          sed -i "s|<!-- deploy-time -->.*<!-- /deploy-time -->|${TAG}|" README.md
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add README.md
+          git commit -m "chore: métricas [skip ci]"
+          git push
