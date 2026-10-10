@@ -10,13 +10,11 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-
+  unit-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         java: [ '17' ]
-
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK ${{matrix.java}}
@@ -27,6 +25,10 @@ jobs:
           cache: maven
       - name: Build with Maven Wrapper
         run: ./mvnw -B verify
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
       - name: Validate Dockerfile
         uses: hadolint/hadolint-action@v3.5.0
         with:
