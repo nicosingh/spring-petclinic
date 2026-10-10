@@ -28,6 +28,6 @@ jobs:
       - name: Build with Maven Wrapper
         run: ./mvnw -B verify
       - name: Validate Dockerfile
-        uses: hadolint/hadolint-action@v3
+        uses: hadolint/hadolint-action@v3.5.0
         with:
           dockerfile: .devcontainer/Dockerfile
