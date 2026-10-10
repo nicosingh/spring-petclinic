@@ -57,7 +57,7 @@ class ValidatorTests {
 		Set<ConstraintViolation<Person>> constraintViolations = validator.validate(person);
 
 		ConstraintViolation<Person> violation = getOnlyViolation(constraintViolations);
-		assertThat(violation.getPropertyPath()).hasToString("firstNama");
+		assertThat(violation.getPropertyPath()).hasToString("firstNamo");
 		assertThat(violation.getMessage()).isEqualTo("must not be blank");
 	}
 
