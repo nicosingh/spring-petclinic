@@ -57,7 +57,7 @@ class ValidatorTests {
 		Set<ConstraintViolation<Person>> constraintViolations = validator.validate(person);
 
 		ConstraintViolation<Person> violation = getOnlyViolation(constraintViolations);
-		assertThat(violation.getPropertyPath()).hasToString("firstNamo");
+		assertThat(violation.getPropertyPath()).hasToString("firstName");
 		assertThat(violation.getMessage()).isEqualTo("must not be blank");
 	}
 
@@ -66,7 +66,7 @@ class ValidatorTests {
 		LocaleContextHolder.setLocale(Locale.ENGLISH);
 
 		Person person = new Person();
-		person.setFirstName("Georga");
+		person.setFirstName("George");
 		person.setLastName("");
 
 		Validator validator = createValidator();
