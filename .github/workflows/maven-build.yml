@@ -10,6 +10,16 @@ on:
     branches: [ main ]
 
 jobs:
+  sca:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Snyk - Analisis de dependencias
+        uses: snyk/actions/maven@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
   unit-test:
     runs-on: ubuntu-latest
     strategy:
