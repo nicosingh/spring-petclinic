@@ -10,6 +10,19 @@ on:
     branches: [ main ]
 
 jobs:
+  sca-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build imagen
+        run: docker build -t spring-petclinic:latest .devcontainer
+      - name: Snyk - Analisis de dependencias
+        uses: snyk/actions/docker@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          image: spring-petclinic:latest
+          args: --severity-threshold=high
   sca:
     runs-on: ubuntu-latest
     steps:
